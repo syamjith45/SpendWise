@@ -1,0 +1,36 @@
+.dateSection{
+    margin-top: 1%;
+    display: flex;
+    margin-left: 2%;
+   margin: 0;
+   padding: 0;
+   justify-content: space-between;
+   padding-bottom: 20px ;
+}
+.total{
+    margin-right: 20px;
+}
+
+.total span{
+   
+    opacity: 0.8;
+    margin-right: 20px;
+
+}
+.total h2{
+    display: inline;
+    font-weight: bold;
+}
+
+
+.calendar{
+    font-size: 22px;
+    margin-left: 20px;
+    
+}
+
+.month-picker{
+    border: 0;
+    font-size: 30px;
+    
+}

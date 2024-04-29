@@ -1,0 +1,31 @@
+<div class="container-fluid ps-4 mt-3">
+    <a class="d-flex back-button" [routerLink]="'/expense-tracker'">
+      <div class="back-icon">
+        <i class="bi bi-arrow-left m-0 p-0"></i>
+      </div>  
+      <div class="back-text">
+        <p class="m-0 p-0">Back</p>
+      </div>
+    </a>
+    
+    </div>
+    
+    
+    <div class="container-fluid ps-4 pt-2 date-text">
+        <p class="">February 2024</p>
+    </div>
+    <section class="container-fluid d-flex justify-content-between ps-4">
+        <div class="d-flex">
+            <p class="total-text-larger pe-3" [style.color]="Cname.color">{{Cname.name}}</p>
+            <p class="total-text-small pe-3">Total</p>
+            <div class="d-flex">
+                <i class="bi bi-currency-rupee total-text-larger" [style.color]="Cname.color"  ></i>
+                <p class="total-text-larger fw-bold" [style.color]="Cname.color" >{{ totalAmount.toFixed(2)  }}</p>
+    
+            </div>
+        </div>
+        <div class="me-4">
+            <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#myModal">AddBill</button>
+        </div>
+    </section> 
+    <app-addbills></app-addbills>

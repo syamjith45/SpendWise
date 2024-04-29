@@ -1,0 +1,300 @@
+[
+  {
+    "id":1,
+    "name":"Groceries",
+    "footer":"Milk, Meat, fruits and Vegetables",
+    "color":"#4CAF50",
+    "border":"1px solid #4CAF50",
+    "icon":[
+      "fa-solid fa-apple-whole pe-1",
+      "fa-solid fa-cow pe-1",
+      "fa-solid fa-plant-wilt"],
+    "table":[
+        {
+          "id":"1",
+          "billno":"B267/2024",
+          "date":"01 Feb 2024",
+          "from":"Vegetable Shop",
+          "description":"Carrot,Potato,Onion",
+          "amount":6200.00,
+          "icon":"fa-solid fa-apple-whole"
+        },
+        {
+          "id":"2",
+          "billno":"B4567/2024",
+          "date":"03 Feb 2024",
+          "from":"Stationary Shop",
+          "description":"Rice, Uzhunn, Parrippu",
+          "amount":5200.00,
+          "icon":"fa-solid fa-cow"
+        },
+        {
+          "id":"3",
+          "billno":"B266667/2024",
+          "date":"02 Feb 2024",
+          "from":"Meat Shop",
+          "description":"Beef",
+          "amount":2400.00,
+          "icon":"fa-solid fa-drumstick-bite"
+        },
+        {
+          "id":4,
+          "billno":"B234567/2024",
+          "date":"05 Feb 2024",
+          "from":"Fruit Shop",
+          "description":"Apple, Orange, Grapes",
+          "amount":1800.00,
+          "icon":"fa-solid fa-plant-wilt"
+        }
+      ]
+  },
+  {
+    "id":2,
+    "name":"Transportation",
+    "footer":"Fuel, Bus,Train etc",
+    "color":"#D88913",
+    "border":"1px solid #D88913",
+    "icon":[
+      "fa-solid fa-gas-pump pe-1",
+      "fa-solid fa-bus pe-1",
+      "fa-solid fa-train-tram"],
+    "table":[
+        {
+          "id":"1",
+          "billno":"B234567/2024",
+          "date":"01 Feb 2024",
+          "from":"Bus",
+          "description":"Office Transportation",
+          "amount":3000.00,
+          "icon":"fa-solid fa-bus"
+        },
+        {
+          "id":"2",
+          "billno":"B234567/2024",
+          "date":"03 Feb 2024",
+          "from":"Train",
+          "description":"To Home",
+          "amount":7300.00,
+          "icon":"fa-solid fa-train-tram"
+        },
+        {
+          "id":"3",
+          "billno":"B234567/2024",
+          "date":"02 Feb 2024",
+          "from":"Bike",
+          "description":"Holiday",
+          "amount":6500.00,
+          "icon":"fa-solid fa-motorcycle"
+        },
+        {
+          "id":4,
+          "billno":"B234567/2024",
+          "date":"05 Feb 2024",
+          "from":"Bus",
+          "description":"To home",
+          "amount":9800.00,
+          "icon":"fa-solid fa-bus"
+        }
+      ]
+  },
+  {
+    "id":3,
+    "name":"Food",
+    "footer":"Dine-out, Swiggy, Zomato etc",
+    "color":"#E45F5F",
+    "border":"1px solid #E45F5F",
+    "icon":[
+      "fa-solid fa-burger pe-1",
+      "fa-solid fa-mug-hot pe-1",
+      "fa-solid fa-fish"],
+    "table":[
+        {
+          "id":"1",
+          "billno":"B234567/2024",
+          "date":"01 Feb 2024",
+          "from":"Hotel Paradise",
+          "description":"Biriyani",
+          "amount":1110.00,
+          "icon":"fa-solid fa-burger"
+        },
+        {
+          "id":"2",
+          "billno":"B234567/2024",
+          "date":"03 Feb 2024",
+          "from":"Cafe Coffee Day",
+          "description":"Coffee and Snacks",
+          "amount":3000.00,
+          "icon":"fa-solid fa-mug-hot"
+        },
+        {
+          "id":"3",
+          "billno":"B234567/2024",
+          "date":"02 Feb 2024",
+          "from":"Hotel Paradise",
+          "description":"Oonu",
+          "amount":7810.00,
+          "icon":"fa-solid fa-burger"
+        }
+      ]
+  },
+  {
+    "id":4,
+    "name":"Fun",
+    "footer":"Liesure and other Fun activities",
+    "color":"#E91E63",
+    "border":"1px solid #E91E63",
+    "icon":[
+      "fa-solid fa-film pe-1",
+      "fa-solid fa-map-location pe-1",
+      "fa-solid fa-campground"],
+    "table":[
+        {
+          "id":"1",
+          "billno":"B234567/2024",
+          "date":"01 Feb 2024",
+          "from":"PVR",
+          "description":"Second show",
+          "amount":1990.00,
+          "icon":"fa-solid fa-film"
+        },
+        {
+          "id":"2",
+          "billno":"B234567/2024",
+          "date":"03 Feb 2024",
+          "from":"Munnar resorts",
+          "description":"Camping",
+          "amount":2500.00,
+          "icon":"fa-solid fa-campground"
+        },
+        {
+          "id":"3",
+          "billno":"B234567/2024",
+          "date":"02 Feb 2024",
+          "from":"PVR",
+          "description":"First show",
+          "amount":1890.00,
+          "icon":"fa-solid fa-film"
+        },
+        {
+          "id":4,
+          "billno":"B234567/2024",
+          "date":"05 Feb 2024",
+          "from":"PVR",
+          "description":"Second show",
+          "amount":2990.00,
+          "icon":"fa-solid fa-film"
+        }
+      ]
+  },
+  {
+    "id":5,
+    "name":"Health Care",
+    "footer":"Medical Insurance, Doctor Visit etc",
+    "color":"#009688",
+    "border":"1px solid #009688",
+    "icon":[
+      "fa-solid fa-stethoscope pe-1",
+      "fa-solid fa-user-doctor pe-1",
+      "fa-solid fa-notes-medical"],
+    "table":[
+      {
+        "id":"1",
+        "billno":"B234567/2024",
+        "date":"01 Feb 2024",
+        "from":"LIC",
+        "description":"Health insurence",
+        "amount":1499.00,
+        "icon":"fa-solid fa-notes-medical"
+      },
+      {
+        "id":"2",
+        "billno":"B234567/2024",
+        "date":"03 Feb 2024",
+        "from":"Hospital",
+        "description":"Doctor visit",
+        "amount":5970.00,
+        "icon":"fa-solid fa-stethoscope"
+      },
+      {
+        "id":"3",
+        "billno":"B234567/2024",
+        "date":"02 Feb 2024",
+        "from":"Pharmacy",
+        "description":"Medicines",
+        "amount":1970.00,
+        "icon":"fa-solid fa-user-doctor"
+      }
+    ]
+  },
+  {
+    "id":6,
+    "name":"Utilities",
+    "footer":"Internet, Electricity, Water, Gas etc",
+    "color":"#3F51B5",
+    "border":"1px solid #3F51B5",
+    "icon":[
+      "fa-solid fa-wifi pe-1",
+      "fa-solid fa-bolt pe-1",
+      "fa-solid fa-droplet"],
+    "table":[
+        {
+          "id":"1",
+          "billno":"B234567/2024",
+          "date":"01 Feb 2024",
+          "from":"BSNL Communication",
+          "description":"Internet, Cable and Landline",
+          "amount":3990.00,
+          "icon":"fa-solid fa-wifi"
+        },
+        {
+          "id":"2",
+          "billno":"B234567/2024",
+          "date":"03 Feb 2024",
+          "from":"P K Water",
+          "description":"Drinking Water",
+          "amount":5970.00,
+          "icon":"fa-solid fa-droplet"
+        },
+        {
+          "id":"3",
+          "billno":"B234567/2024",
+          "date":"02 Feb 2024",
+          "from":"KSEB",
+          "description":"Electricity bill",
+          "amount":1970.00,
+          "icon":"fa-solid fa-bolt"
+        }
+      ]
+  },
+  {
+    "id":7,
+    "name":"Misc",
+    "footer":"Other expenses ",
+    "color":"#795548",
+    "border":"1px solid #795548",
+    "icon":[
+      "fa-solid fa-wallet pe-1",
+      "fa-solid fa-credit-card pe-1",
+      "fa-solid fa-coins"],
+    "table":[
+        {
+          "id":"1",
+          "billno":"B234567/2024",
+          "date":"01 Feb 2024",
+          "from":"Kochi workshop",
+          "description":"Bike repair",
+          "amount":2000.00,
+          "icon":"fa-solid fa-credit-card"
+        },
+        {
+          "id":"2",
+          "billno":"B234567/2024",
+          "date":"03 Feb 2024",
+          "from":"Vysakh",
+          "description":"Borrow",
+          "amount":5000.00,
+          "icon":"fa-solid fa-wallet"
+        }
+      ]
+  }
+]

@@ -1,0 +1,41 @@
+
+<app-header></app-header>
+
+<app-title ></app-title>
+
+<div class="container-fluid p-0 mt-4 px-4">
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Bill No</th>
+        <th scope="col">Date</th>
+        <th scope="col">Shop/Company/Person</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of tableData.table">
+        <td ><i [ngClass]="data.icon"></i></td>
+        <td>{{data.billno}}</td>
+        <td>{{data. date}}</td>
+        <td>{{data.from}}</td>
+        <td>{{data.description}}</td>
+        
+        <td>
+          <i class="fas fa-indian-rupee-sign icon1 pe-2"></i>
+          {{data.amount}}
+      </td>
+      <td>
+        <i class="fa-solid fa-pencil text-muted icon pe-3"></i>   
+        <i class="fa-solid fa-trash text-muted icon"></i> 
+      </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+

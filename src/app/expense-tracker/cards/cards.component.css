@@ -1,0 +1,32 @@
+.two{
+    border: 1px solid;
+    width: 310px;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.one{
+    background-color: rgb(165, 47, 165);
+    width: 310px;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
+.side1{
+    width: 47%;
+    margin: 0;
+    padding: 0;
+    border-top-left-radius: 10px ;
+    border-bottom-left-radius: 10px;
+}
+
+.row{
+    margin: 0;
+    padding: 0;
+    justify-content: space-evenly;
+}

@@ -18,24 +18,28 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of tableData.table">
+      <tr *ngFor="let data of tableData">
         <td ><i [ngClass]="data.icon"></i></td>
         <td>{{data.billno}}</td>
-        <td>{{data. date}}</td>
-        <td>{{data.from}}</td>
-        <td>{{data.description}}</td>
+        <td>{{data.billDate}}</td>
+        <td>{{data.billReceivedFrom}}</td>
+        <td>{{data.billDescription}}</td>
         
         <td>
           <i class="fas fa-indian-rupee-sign icon1 pe-2"></i>
-          {{data.amount}}
+          {{data.billAmount}}
       </td>
       <td>
-        <i class="fa-solid fa-pencil text-muted icon pe-3"></i>   
-        <i class="fa-solid fa-trash text-muted icon"></i> 
+        <i class="fa-solid fa-pencil text-muted icon pe-3" (click)="EditButton(data.billId)"   data-bs-toggle="modal" data-bs-target="#myModal"></i>   
+        <i class="fa-solid fa-trash text-muted icon" (click)="DelButton(data.billId)" ></i> 
       </td>
       </tr>
     </tbody>
   </table>
 
 </div>
+<app-addbills ></app-addbills>
+
+
+
 

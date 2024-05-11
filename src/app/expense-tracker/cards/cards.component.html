@@ -1,4 +1,4 @@
-<app-card-title [total]="grandAmount"></app-card-title>
+<app-card-title ></app-card-title>
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-3 mb-4 one d-flex flex-column align-items-center justify-content-center">
@@ -7,20 +7,20 @@
       </div>
       <p style="color: antiquewhite; padding-top:-20px;">Add Bill</p>
     </div>
-    <div class="col-lg-3 mb-4 two d-flex" *ngFor="let data of cardDetails" [style.border-color]="data.color" (click)="goTo(data.id)">
-      <div class="side1 d-flex flex-column justify-content-between ps-2" [style.background-color]="data.color">
-        <div class="text-white head">{{data.name}}</div>
+    <div class="col-lg-3 mb-4 two d-flex" *ngFor="let data of cardDetails" [style.border-color]="getColors(data.id)" (click)="goTo(data.id)">
+      <div class="side1 d-flex flex-column justify-content-between ps-2" [style.background-color]="getColors(data.id)">
+        <div class="text-white head">{{data.catName}}</div>
         <div class="icon d-flex">
-          <div class="icons text-white " *ngFor="let i of data.icon">
-            <i class="fa-solid {{ i }} pe-2"></i>
+          <div class="icons text-white">
+            <i *ngFor="let icon of getIcon(data.id)" [ngClass]="icon"></i>
           </div>
         </div>
-        <div class="list text-white pb-2 fs-6">{{data.footer}}</div>
+        <div class="list text-white pb-2 fs-6">{{data.description}}</div>
       </div>
       <div class="side2 py-5 ps-4 ">
         <div>
           <p class="text-muted">Total Spend</p>
-          <h4 class="amount py-3" [style.color]="data.color"><i class="fas fa-indian-rupee-sign" [style.color]="data.color"></i>{{data.total}}</h4>
+          <h4 class="amount py-3" [style.color]="getColors(data.id)"><i class="fas fa-indian-rupee-sign" [style.color]="getColors(data.id)"></i>{{data.total}}</h4>
         </div>
       </div>
     </div>

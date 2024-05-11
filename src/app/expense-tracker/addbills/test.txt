@@ -1,0 +1,112 @@
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { DataserviceService } from 'src/app/Service/dataservice.service';
+
+@Component({
+  selector: 'app-addbills',
+  templateUrl: './addbills.component.html',
+  styleUrls: ['./addbills.component.css']
+})
+export class AddbillsComponent implements OnChanges {
+
+  formData: any;
+  editItem: any;
+  items:any;
+
+  @Input() billId:any;
+  constructor(private billservice:DataserviceService) {
+
+     this.form = {
+      ExpenseType: '1', // Example initial data for ExpenseType
+      BillDate: '2024-05-09', // Example initial data for BillDate
+      BillReceivedFrom: 'Market', // Example initial data for BillReceivedFrom
+      BillDescription: 'Good', // Example initial data for BillDescription
+      BillAmount: 150 // Example initial data for BillAmount
+    };
+   }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.getItems();
+    this.billservice.getBill().subscribe(res=>{
+      this.formData=res;})
+
+    this.editItem = this.formData.find((a:any)=>{
+      
+      return a.billId == this.billId;
+
+
+      
+
+    })
+
+    console.log('edititem',this.editItem);
+
+
+    if (this.editItem) {
+      // Populate your form with data from this.editItem
+      this.form.patchValue({
+        ExpenseType: this.editItem.expenseType,
+        BillDate: this.editItem.billDate,
+        BillReceivedFrom: this.editItem.billReceivedFrom,
+        BillDescription: this.editItem.billDescription,
+        BillAmount: this.editItem.billAmount,
+      });
+    }
+
+    this.form.BillReceivedFrom ="this.editItem.billReceivedFrom";
+    
+  }
+
+
+
+   
+
+  
+
+  
+  form:any = {};
+
+  
+
+  onSubmit() {
+    
+    console.log("form",this.form);
+
+    this.billservice.createBill(this.form).subscribe(
+      response => {
+        console.log('Bill saved successfully:', response);
+        this.form.reset();
+      },
+      error => {
+        console.error('Error saving bill:', error);
+      }
+    );
+    
+  }
+getItems(){
+  this.billservice.getitem().subscribe(res=>{
+    this.items=res;
+
+    console.log("items",this.items);
+  })
+
+}
+
+// getBillData(){
+//   this.billservice.getBillById().subscribe(res=>{
+//   this.formData=res;
+
+//   console.log('formData',this.formData);
+  
+
+//   })
+// }
+ 
+
+
+}
+
+
+
+  
+
+
+

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataserviceService } from 'src/app/Service/dataservice.service';
 
 @Component({
   selector: 'app-card-title',
@@ -6,10 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card-title.component.css']
 })
 export class CardTitleComponent implements OnInit {
-  @Input() total:number=0;
-  constructor() { }
+  month:string='';
+  constructor(private getmonth:DataserviceService) { }
 
   ngOnInit(): void {
+
+    this.month=this.getmonth.getSelectMonth();
+  }
+
+  onMonthChange(){
+    this.getmonth.setSelectMonth(this.month)
   }
 
 }

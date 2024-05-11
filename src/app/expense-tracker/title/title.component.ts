@@ -12,25 +12,23 @@ export class TitleComponent implements OnInit {
   id:number=0;
   allExpense:any
   totalAmount: any;
+  monthAndYear!: string;
   
-  constructor(private route:ActivatedRoute,private getapi:DataserviceService) { }
+  constructor(private route:ActivatedRoute,private getMonth:DataserviceService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
       this.id=params['id']
-      this.catName();
     })
-
+    this.getMonthAndYear();
   }
-  catName(){
-    this.getapi.getData().subscribe((res)=>{
-      this.allExpense=res;
-   this.Cname=this.allExpense.find((expense:any)=>expense.id==this.id);
-   this.totalAmount=this.Cname.table.reduce((acc:number,curr:any)=>acc+curr.amount,0);
-   console.log('total',this.totalAmount);
-   
-   })
  
-   
+
+  getMonthAndYear(){
+    let monthAndYear = this.getMonth.getSelectMonth();
+    let [year,month] = monthAndYear.split("-");
+    let months =  ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let selectedMonth = months[parseInt(month,10)-1];
+    this.monthAndYear = selectedMonth +"  "+ year;
   }
 }

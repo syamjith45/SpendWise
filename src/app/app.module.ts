@@ -13,6 +13,8 @@ import { HeaderComponent } from './expense-tracker/header/header.component';
 import { BillDetailsComponent } from './expense-tracker/bill-details/bill-details.component';
 import { CardTitleComponent } from './expense-tracker/card-title/card-title.component';
 import { FormsModule } from '@angular/forms';
+import { DataserviceService } from './Service/dataservice.service';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

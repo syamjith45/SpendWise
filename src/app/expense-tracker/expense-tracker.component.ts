@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataserviceService } from '../Service/dataservice.service';
 
 @Component({
   selector: 'app-expense-tracker',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpenseTrackerComponent implements OnInit {
 
-  constructor() { }
+
+  categories: any[] = [];
+  constructor(private CategoryService:DataserviceService) { }
 
   ngOnInit(): void {
+
+    this.getCategories();
+    
   }
 
+  getCategories():void{
+    this.CategoryService.getData().subscribe(data=>{
+      this.categories=data;
+      console.log('Categories:', this.categories);
+    },
+    error => {
+      console.error('Error fetching categories:', error); // Log error if any
+    }
+  )
+  }
 }

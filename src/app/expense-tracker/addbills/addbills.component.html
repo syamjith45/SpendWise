@@ -1,83 +1,78 @@
-   <!-- Modal -->
-   <div class="modal" id="myModal">
+<div class="modal" id="myModal">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-  
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title fs-4">Add Bill</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-  
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="container mt-3">
-                    <form #myForm="ngForm" (ngSubmit)="onSubmit()">
-                        <div class="row justify-content-between text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex height">
-                                <label class="col-sm-2 col-form-label">Type</label>
-                                <select class="form-select" id="type" style="border: 1px solid #6946a5;" name="type" [(ngModel)]="formData.type" required>
-                                    
-                                    <option value="Internet">Internet</option>
-                                    <option value="food">Food</option>
-                                </select>
-                                <div *ngIf="myForm.controls['type'].invalid && (myForm.controls['type'].dirty || myForm.controls['type'].touched)" class="text-danger">
-                                    Type is required.
-                                </div>
-                            </div>
-                            <div class="form-group col-sm-6 flex-column d-flex height">
-                                <label class="col-sm-2 col-form-label">Date</label>
-                                <input id="exampleInputDate" type="date" class="form-control" style="border: 1px solid #6946a5;" name="date" [(ngModel)]="formData.date" required>
-                                <div *ngIf="myForm.controls['date'].invalid && (myForm.controls['date'].dirty || myForm.controls['date'].touched)" class="text-danger">
-                                    Date is required.
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="row justify-content-between mt-3 height">
-                            <div class="form-group col-12 flex-column d-flex">
-                                <label class="col-sm-2 col-lg-3 col-form-label">Shop/Company/Person</label>
-                                <input type="text" class="form-control" id="exampleInputPerson" style="border: 1px solid #6946a5;" placeholder="BSNL Communication" name="person" [(ngModel)]="formData.person" required>
-                                <div *ngIf="myForm.controls['person'].invalid && (myForm.controls['person'].dirty || myForm.controls['person'].touched)" class="text-danger">
-                                    Person is required.
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="row justify-content-between mt-3 height">
-                            <label class="col-sm-2 col-form-label">Description</label>
-                            <div class="form-group col-12 flex-column d-flex">
-                                <textarea id="exampleInputDescription" class="form-control" style="border: 1px solid #5500e9;" type="text" placeholder="Internet, cable and landline" name="description" [(ngModel)]="formData.description" required></textarea>
-                                <div *ngIf="myForm.controls['description'].invalid && (myForm.controls['description'].dirty || myForm.controls['description'].touched)" class="text-danger">
-                                    Description is required.
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="row justify-content-between mt-3 height">
-                            <div class="col-sm-5 flex-column d-flex mt-3">
-                                <label class="col-sm-2 col-form-label">Amount</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span style="border: 1px solid #6946a5;" class="input-group-text"><i class="fas fa-indian-rupee-sign"></i></span>
-                                    </div>
-                                    <input id="exampleInputAmount" style="border: 1px solid #6946a5;" type="text" class="form-control" id="billAmount" name="amount" [(ngModel)]="formData.amount" required>
-                                </div>
-                                <div *ngIf="myForm.controls['amount'].invalid && (myForm.controls['amount'].dirty || myForm.controls['amount'].touched)" class="text-danger">
-                                    Amount is required.
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="modal-footer mt-4">
-                            <button type="button" class="btn btn-closed" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Save</button>
-                        </div>
-                    </form>
-                                 
-                </div>
-            </div>
-  
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title fs-4">Add Bill</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="container mt-3">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+              <div class="row justify-content-between text-left">
+                <div class="form-group col-sm-6 flex-column d-flex height">
+                  <label class="col-form-label">Type</label>
+                  <select class="form-control" name="ExpenseType" [(ngModel)]="form.expenseType" required>
+                    <option *ngFor="let expenseType of items" [value]="expenseType.categoryId">{{expenseType.typeName}}</option>
+                  </select>
+                  <div *ngIf="myForm.controls['ExpenseType'].invalid && (myForm.controls['ExpenseType'].dirty || myForm.controls['ExpenseType'].touched)" class="text-danger">
+                    Type is required.
+                  </div>
+                </div>
+                <div class="form-group col-sm-6 flex-column d-flex height">
+                  <label class="col-form-label">Date</label>
+                  <input type="date" class="form-control" name="BillDate" [(ngModel)]="form.billDate" required>
+                  <div *ngIf="myForm.controls['BillDate'].invalid && (myForm.controls['BillDate'].dirty || myForm.controls['BillDate'].touched)" class="text-danger">
+                    Date is required.
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row justify-content-between mt-3 height">
+                <div class="form-group col-12 flex-column d-flex">
+                  <label class="col-form-label">Shop/Company/Person</label>
+                  <input type="text" class="form-control" name="BillReceivedFrom" [(ngModel)]="form.billReceivedFrom" required>
+                  <div *ngIf="myForm.controls['BillReceivedFrom'].invalid && (myForm.controls['BillReceivedFrom'].dirty || myForm.controls['BillReceivedFrom'].touched)" class="text-danger">
+                    Person is required.
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row justify-content-between mt-3 height">
+                <label class="col-form-label">Description</label>
+                <div class="form-group col-12 flex-column d-flex">
+                  <textarea class="form-control" name="BillDescription" [(ngModel)]="form.billDescription" required></textarea>
+                  <div *ngIf="myForm.controls['BillDescription'].invalid && (myForm.controls['BillDescription'].dirty || myForm.controls['BillDescription'].touched)" class="text-danger">
+                    Description is required.
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row justify-content-between mt-3 height">
+                <div class="col-sm-5 flex-column d-flex mt-3">
+                  <label class="col-form-label">Amount</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span style="border: 1px solid #6946a5;" class="input-group-text"><i class="fas fa-indian-rupee-sign"></i></span>
+                    </div>
+                    <input id="exampleInputAmount" style="border: 1px solid #6946a5;" type="text" class="form-control" name="billAmount" [(ngModel)]="form.billAmount" required>
+                  </div>
+                  <div *ngIf="myForm.controls['billAmount'].invalid && (myForm.controls['billAmount'].dirty || myForm.controls['billAmount'].touched)" class="text-danger">
+                    Amount is required.
+                  </div>
+                </div>
+              </div>
+  
+              <div class="modal-footer mt-4">
+                <button type="button" class="btn btn-closed" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  

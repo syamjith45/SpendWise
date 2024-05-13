@@ -19,9 +19,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let data of tableData">
-        <td ><i [ngClass]="data.icon"></i></td>
-        <td>{{data.billno}}</td>
-        <td>{{data.billDate}}</td>
+        <td ><i></i></td>
+        <td>{{data.billNo}}</td>
+        <td>{{DateFormat(data.billDate)}}</td>
         <td>{{data.billReceivedFrom}}</td>
         <td>{{data.billDescription}}</td>
         
@@ -30,16 +30,108 @@
           {{data.billAmount}}
       </td>
       <td>
-        <i class="fa-solid fa-pencil text-muted icon pe-3" (click)="EditButton(data.billId)"   data-bs-toggle="modal" data-bs-target="#myModal"></i>   
+        <i class="fa-solid fa-pencil text-muted icon pe-3" (click)="EditButton(data.billId)"   data-bs-toggle="modal" data-bs-target="#Modal"></i>   
         <i class="fa-solid fa-trash text-muted icon" (click)="DelButton(data.billId)" ></i> 
       </td>
+     
       </tr>
     </tbody>
   </table>
 
 </div>
-<app-addbills ></app-addbills>
 
+ 
+<app-addbills [formData]="editData"></app-addbills>
+
+
+<!-- editBill -->
+<div class="modal" id="Modal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title fs-4">Edit Bill</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="container mt-3">
+          <form #myForm="ngForm" (ngSubmit)="onSubmit()" method="get">
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-sm-6 flex-column d-flex height">
+                <label class="col-form-label">Type</label>
+                <select class="form-control border border-primary" name="expenseType" [(ngModel)]="form.expenseType" (ngModelChange)="valueChangeType($event)" required>
+                  <option *ngFor="let expenseType of items" [value]="expenseType.categoryId">{{expenseType.typeName}}</option>
+                </select>
+                <!-- <div *ngIf="myForm.controls['expenseType'].invalid && (myForm.controls['expenseType'].dirty || myForm.controls['expenseType'].touched)" class="text-danger">
+                  Type is required.
+                </div> -->
+              </div>
+              <div class="form-group col-sm-6 flex-column d-flex ">
+                <label class="col-form-label">Date</label>
+                <input type="date" class="form-control border border-primary" name="billDate" [(ngModel)]="form.billDate" (ngModelChange)="valueChangeDate($event)" required>
+                <!-- <div *ngIf="myForm.controls['billDate'].invalid && (myForm.controls['billDate'].dirty || myForm.controls['billDate'].touched)" class="text-danger">
+                  Date is required.
+                </div> -->
+              </div>
+            </div>
+            
+            <div class="row justify-content-between mt-3 height">
+              <div class="form-group col-12 flex-column d-flex">
+                <label class="col-form-label">BillNo</label>
+                <input type="text" class="form-control border border-primary" name="billNo" [(ngModel)]="form.billNo" (ngModelChange)="valueChangeBillno($event)" required>
+                <div *ngIf="myForm.controls['billNo'].invalid &&  (myForm.controls['billNo'].dirty || myForm.controls['billNo'].touched)" class="text-danger">
+                  BillNo is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-between mt-3 height">
+              <div class="form-group col-12 flex-column d-flex">
+                <label class="col-form-label">Shop/Company/Person</label>
+                <input type="text" class="form-control border border-primary" name="billReceivedFrom" [(ngModel)]="form.billReceivedFrom" (ngModelChange)="valueChangeRecieved($event)" required>
+                <div *ngIf="myForm.controls['billReceivedFrom'].invalid && (myForm.controls['billReceivedFrom'].dirty || myForm.controls['billReceivedFrom'].touched)" class="text-danger">
+                  Person is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-between mt-3 height">
+              <label class="col-form-label">Description</label>
+              <div class="form-group col-12 flex-column d-flex">
+                <textarea class="form-control border border-primary" name="billDescription" [(ngModel)]="form.billDescription" (ngModelChange)="valueChangeDescription($event)" required></textarea>
+                <div *ngIf="myForm.controls['billDescription'].invalid && (myForm.controls['billDescription'].dirty || myForm.controls['billDescription'].touched)" class="text-danger">
+                  Description is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-between mt-3 height">
+              <div class="col-sm-5 flex-column d-flex mt-3">
+                <label class="col-form-label">Amount</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span style="border: 1px solid #6946a5;" class="input-group-text"><i class="fas fa-indian-rupee-sign"></i></span>
+                  </div>
+                  <input id="exampleInputAmount"  type="text" class="form-control border border-primary" name="billAmount" [(ngModel)]="form.billAmount" (ngModelChange)=" valueChangeAmount($event)" required>
+                </div>
+                <div *ngIf="myForm.controls['billAmount'].invalid && (myForm.controls['billAmount'].dirty || myForm.controls['billAmount'].touched)" class="text-danger">
+                  Amount is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer mt-4">
+              <button type="button" class="btn btn-closed" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

@@ -1,0 +1,13 @@
+.input-group-prepend,
+.input-group-text {
+    height: 38px; 
+    background-color: dodgerblue;
+    color: white;
+}
+
+.height{
+    height: 80px;
+}
+.height-amount{
+    height: 160px;
+}

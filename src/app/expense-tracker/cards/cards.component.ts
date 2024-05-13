@@ -11,6 +11,7 @@ export class CardsComponent implements OnInit {
   cardDetails:any
   id:any;
   grandAmount:number=0;
+  catIdTotal:any;
   
   constructor(private categoryService:DataserviceService,private router:Router,private route:ActivatedRoute) { }
 
@@ -22,7 +23,7 @@ export class CardsComponent implements OnInit {
       console.log('id',this.id);
       
     })
-
+    this.getCatTotal();
     
   }
 
@@ -80,7 +81,27 @@ getIcon(id:number):string[]{
             "fa-solid fa-campground"]
 
           break;
-      
+    case 5:
+      icons=[
+        "fa-solid fa-stethoscope pe-1",
+        "fa-solid fa-user-doctor pe-1",
+        "fa-solid fa-notes-medical"]
+        break;
+        
+    case 6:
+      icons=[
+        "fa-solid fa-wifi pe-1",
+        "fa-solid fa-bolt pe-1",
+        "fa-solid fa-droplet"]
+        break;
+
+    case 7:
+    icons=[
+      "fa-solid fa-wallet pe-1",
+      "fa-solid fa-credit-card pe-1",
+      "fa-solid fa-coins"]
+      break
+        
       
 
 
@@ -108,7 +129,12 @@ getIcon(id:number):string[]{
   }
 
 
-
+  getCatTotal():void{
+    this.categoryService.getTotalByCatId().subscribe(data=>{
+      this.catIdTotal=data;
+      console.log('total',this.catIdTotal);
+    })
+  }
 
 
 }

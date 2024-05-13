@@ -16,15 +16,24 @@ export class DataserviceService implements OnInit{
 
   }
   
-  private month:string="2024-02"
+  private selectedMonth: string = '2024-05';
 
   setSelectMonth(month:string){
-    this.month=month;
+    this.selectedMonth=month;
 
   }
 
   getSelectMonth(){
-    return this.month;
+    return this.selectedMonth;
+  }
+
+  getMonth(){
+    let [year,month] = this.selectedMonth.split("-");
+    return parseInt(month);
+  }
+  getYear(){
+    let [year,month] = this.selectedMonth.split("-");
+    return parseInt(year);
   }
 
 
@@ -40,8 +49,8 @@ export class DataserviceService implements OnInit{
    }
     
   }
-  private DeleteUrl = 'http://localhost:5293/api/Bill/billDelete/';
-  private apiUrl = 'http://localhost:5293/api/Bill/billById';
+  DeleteUrl = 'http://localhost:5293/api/Bill/billDelete/';
+  apiUrl = 'http://localhost:5293/api/Bill/billById';
   baseurl='http://localhost:5293/api/Category/getCategory';
   posturl='http://localhost:5293/api/Bill/billPost';
   getData():Observable<any>{
@@ -52,16 +61,17 @@ export class DataserviceService implements OnInit{
     return this.http.post<any>(this.posturl, Data);
   }
 
-  getitem():Observable<any>{
+  getitem(){
     return this.http.get("http://localhost:5293/api/Items/itemsGet");
   }
-  getBillById(id: number): Observable<any> {
-    const url = `${this.apiUrl}?id=${id}`;
-    return this.http.get<any>(url);
+  getBillById(id: number):Observable<any>{
+    const month = this.getMonth();
+    const year = this.getYear();
+    return this.http.get<any>(`${this.apiUrl}/?id=${id}&month=${month}&year=${year}`);
   }
-  private updateUrl = 'http://localhost:5293/api/Bill/billUpdate';
+  updateUrl = 'http://localhost:5293/api/Bill/billUpdate';
 
-  updateBill(id:number,updatedData:any):Observable<any>{
+  updateBill(id:number,updatedData:any){
     return this.http.put<any>(`${this.updateUrl}?id=${id}`,updatedData)
   }
 
@@ -69,9 +79,10 @@ export class DataserviceService implements OnInit{
 
   getBill():Observable<any>{
     return this.http.get(this.BillUrl);
+
   }
 
-  deleteBill(id: number): Observable<any> {
+  deleteBill(id: number) {
     const url = `${this.DeleteUrl}${id}`;
     return this.http.delete(url);
   }
@@ -79,7 +90,7 @@ export class DataserviceService implements OnInit{
 
  public  formUrl = 'http://localhost:5293/api/Bill'
  getFormData(id: number): Observable<any> {
-  const url = `${this.formUrl}/billId?id=${id}`;
+  const url = `${this.formUrl}/billId/${id}`;
   return this.http.get(url);
 }
   // formurl='http://localhost:5293/api/Bill/billId?id=2';
@@ -87,4 +98,20 @@ export class DataserviceService implements OnInit{
   // formData(){
   //   return this.http.get(this.formurl)
   // }
+
+  public catTotalUrl = 'http://localhost:5293/api/Bill'
+
+  getTotalByCatId(){
+    const month = this.getMonth()
+    const year = this.getYear()
+    const url = `${this.catTotalUrl}/getTotalbyCatId?month=${month}&year=${year}`;
+
+    return this.http.get(url)
+  }
+
+  getTotalAmount(){
+    const month = this.getMonth()
+    const year = this.getYear()
+    return this.http.get(`http://localhost:5293/api/Bill/getTotalAmount?month=${month}&year=${year}`)
+  }
 }
